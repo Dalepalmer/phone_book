@@ -20,4 +20,14 @@ class Contact
   define_method(:save) do
     @@all.push(self)
   end
+
+  define_singleton_method(:search_contact) do |search_item|
+    phone_numbers = []
+    @@all.each do |contacts|
+      if contacts.contact() == search_item
+        phone_numbers.push(contacts)
+      end
+    end
+    return phone_numbers
+  end
 end
