@@ -4,11 +4,17 @@
 
 <form action ="/contacts" method="post">
   <label for="name"> Contact's First and Last name:</label>
-  <input id="name" name="name" type="text"
+  <input id="name" name="name" type="text">
 
   <label for"number"> Contact's phone number:</label>
   <input id="number" name"number" type="integer">
   <button type="submit">Add Contact</button>
 </form>
 
-<p> <% @all_contacts %>
+<p> <% @all_contacts %> </p>
+
+<form action="/phonebook" method="post">
+  <label for="search"> Search for a contact in your phonebook </label>
+  <input id="search" name="search" type="text">
+  <button type="success"> Search </button>
+</form>

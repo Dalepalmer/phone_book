@@ -1,11 +1,11 @@
 class Contact
-  attr_reader(:contact, :phone_num)
+  attr_reader(:contact)
 
   @@all = []
 
   define_method(:initialize) do |attributes|
     @contact = attributes.fetch(:contact)
-    @phone_num = attributes.fetch(:phone_num)
+    # @phone_num = attributes.fetch(:phone_num)
 
   end
 
@@ -21,13 +21,13 @@ class Contact
     @@all.push(self)
   end
 
-  define_singleton_method(:search_contact) do |search_item|
-    phone_numbers = []
+  define_singleton_method(:search_contact) do |search_contact|
+    contact = []
     @@all.each do |contacts|
-      if contacts.contact() == search_item
-        phone_numbers.push(contacts)
+      if contacts.contact() == search_contact
+        contact.push(contacts)
       end
     end
-    return phone_numbers
+    return contact
   end
 end

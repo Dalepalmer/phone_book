@@ -7,3 +7,6 @@ get('/') do
   @all_contacts = Contact.all()
   erb(:index)
 end
+
+post('/contacts')
+  @contact = params.fetch('')

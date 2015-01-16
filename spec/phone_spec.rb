@@ -1,5 +1,5 @@
 require('rspec')
-require('contact')
+require('phone')
 
 describe(Contact) do
   before() do
@@ -31,6 +31,11 @@ describe(Contact) do
       test_contact_2.save()
       expect(Contact.search_contact("Becky")).to(eq([test_contact]))
       expect(Contact.search_contact("Greg")).to(eq([test_contact_2]))
+    end
+  end
+  describe("add_contact") do
+    it("creates the ability to add multiple phone numbers to a single contact") do
+
     end
   end
 end
