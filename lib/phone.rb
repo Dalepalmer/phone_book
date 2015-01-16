@@ -3,8 +3,8 @@ class Phone
 
   @@all = []
 
-  define_method(:initialize) do |attributes|
-    @phone_num = attributes.fetch(:phone_num)
+  define_method(:initialize) do |phone_num|
+    @phone_num = phone_num
   end
 
   define_singleton_method(:all) do
@@ -19,13 +19,13 @@ class Phone
     @@all.push(self)
   end
 
-  define_singleton_method(:search_number) do |search_number|
-    number = []
-    @@all.each do |numbers|
-      if numbers.phone_num() == search_number
-        number.push(numbers)
+  define_singleton_method(:search_number) do |identification|
+    found_contact = nil
+    @@all.each do |contact|
+      if contact.id().eql?(identification)
+        found_contact = contact
       end
     end
-    return number
+    found_contact
   end
 end
