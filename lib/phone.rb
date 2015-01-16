@@ -7,6 +7,9 @@ class Phone
     @phone_num = phone_num
   end
 
+  define_method(:phone_num) do
+    @phone_num
+  end
   define_singleton_method(:all) do
     @@all
   end

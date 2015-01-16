@@ -9,11 +9,9 @@ describe(Phone) do
 
   describe(".save") do
     it("Saves a phone object in the class") do
-      test_contact = Contact.new({:contact => "Becky"})
-      test_contact.save()
       test_contact = Phone.new({:phone_num => 3305554747})
       test_contact.save()
-      expect(Contact.phone_num()).to(eq(test_contact))
+      expect(Phone.all()).to(eq([test_contact]))
     end
   end
 

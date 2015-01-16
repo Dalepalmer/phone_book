@@ -4,7 +4,7 @@ class Contact
   @@all = []
 
   define_method(:initialize) do |contact|
-    @contact = contact
+    @name = contact
     @id = @@all.length().+(1)
     @phone_num = []
 
@@ -16,6 +16,10 @@ class Contact
 
   define_singleton_method(:clear) do
     @@all = []
+  end
+
+  define_method(:phone_num) do
+    @phone_num
   end
 
   define_method(:save) do

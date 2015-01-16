@@ -8,5 +8,15 @@ get('/') do
   erb(:index)
 end
 
-post('/contacts')
-  @contact = params.fetch('')
+post('/contacts') do
+  name = params.fetch('name')
+  Contact.new(name).save()
+  @contacts = Contact.all()
+  erb(:index)
+end
+
+post('/phone') do
+  phone_num = params.fetch('number')
+  @phone_num = Phone.new(number)
+  @phone_num.save()
+  @contact = Contact.search_contact(params.fetch('contacts.id').to_i())
