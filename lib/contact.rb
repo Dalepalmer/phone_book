@@ -30,17 +30,17 @@ class Contact
     @@all.push(self)
   end
 
-  define_method(:add_number) do |phone_num|
-    @phone_num.push(phone_number)
+  define_method(:add_number) do |numbers|
+    @phone_num.push(numbers)
   end
 
-  define_singleton_method(:search_contact) do |identification|
+  define_singleton_method(:search_contact) do |id|
     found_contact = nil
-    @@all.each do |contact|
-      if contact.id().eql?(identification)
+    @@all.each() do |contact|
+      if contact.id().eql?(id)
         found_contact = contact
       end
     end
-    found_contact
+    return found_contact
   end
 end

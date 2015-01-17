@@ -10,19 +10,19 @@ get('/') do
 end
 
 post('/contact') do
-  name = params.fetch("number")
-  # search = params.fetch("search")
-  Contact.new(name).save()
+  contact = params.fetch('name')
+  phone_num = params.fetch('number')
+  Contact.new([contact, phone_num]).save()
   @all_contacts = Contact.all()
   erb(:index)
 end
 
 post('/phone') do
-  phone_num = params.fetch('number')
-  @phone_num = Phone.new(phone_num)
-  @phone_num.save()
+  phone_num = params.fetch('new_number')
+  @number = Phone.new(phone_num)
+  @number.save()
   @contact = Contact.search_contact(params.fetch('contact_id').to_i())
-  @contact.add_number(@phone_num)
+  @contact.add_number(@number)
   erb(:contact)
 end
 
