@@ -2,7 +2,7 @@
 
 <h3> Keep track of your contacts </h3>
 
-<form action ="/contacts" method="post">
+<form action ="/contact" method="post">
   <label for="name"> Contact's First and Last name:</label>
   <input id="name" name="name" type="text">
   <label for"number"> Contact's phone number:</label>
@@ -11,15 +11,8 @@
 </form>
 
 <h2>Here is your list of contacts:</h2>
-
 <ul>
- <% @all_contacts.each() do |contacts| %>
-  <li><a href="/contacts/<%= contacts.id() %>"><% contact.name() %></a></li>
- <% end %>
+  <% @all_contacts.each() do |contacts| %>
+  <li><a href="/contact/<%= contacts.id() %>"><%= contacts.contact() %></a></li>
+  <% end %>
 </ul>
-
-<form action="/phonebook" method="post">
-  <label for="search"> Search for a contact in your phonebook </label>
-  <input id="search" name="search" type="text">
-  <button type="success"> Search </button>
-</form>

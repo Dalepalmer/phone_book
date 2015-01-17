@@ -7,6 +7,19 @@ describe(Contact) do
     Contact.clear()
   end
 
+  describe(".all") do
+    it("checks if all is empty at first") do
+      expect(Contact.all()).to(eq([]))
+    end
+  end
+
+  describe('#id') do
+    it("creates an id of the contact") do
+      test_contact = Contact.new("Becky")
+      expect(test_contact.contact()).to(eq("Becky"))
+    end
+  end
+
   describe("#save") do
     it("Saves a contact object in the class") do
       test_contact = Contact.new("Becky")

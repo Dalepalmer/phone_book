@@ -5,6 +5,11 @@ class Phone
 
   define_method(:initialize) do |phone_num|
     @phone_num = phone_num
+    @id = @@all.length().+(1)
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_method(:phone_num) do
@@ -23,12 +28,12 @@ class Phone
   end
 
   define_singleton_method(:search_number) do |identification|
-    found_contact = nil
-    @@all.each do |contact|
-      if contact.id().eql?(identification)
-        found_contact = contact
+    found_number = nil
+    @@all.each do |number|
+      if number.id().eql?(identification.to_i())
+        found_number = number
       end
     end
-    found_contact
+    found_number
   end
 end

@@ -4,10 +4,14 @@ class Contact
   @@all = []
 
   define_method(:initialize) do |contact|
-    @name = contact
+    @contact = contact
     @id = @@all.length().+(1)
     @phone_num = []
 
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_singleton_method(:all) do
@@ -26,8 +30,8 @@ class Contact
     @@all.push(self)
   end
 
-  define_method(:add_number) do |number|
-    @phone_num.push(number)
+  define_method(:add_number) do |phone_num|
+    @phone_num.push(phone_number)
   end
 
   define_singleton_method(:search_contact) do |identification|
